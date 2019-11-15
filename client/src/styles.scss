@@ -37,6 +37,10 @@ body,
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: rgb(199, 164, 233);
 }
 
 .colors-wrap {
@@ -68,12 +72,14 @@ body,
   width: 16px;
   border: solid 1px lightgrey;
   margin-right: 36px;
+
 }
 
 form {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+  
 
   legend {
     padding-left: 40px;
@@ -93,7 +99,7 @@ form {
 
   input {
     width: 100px;
-    border: dotted 2px rgb(5, 63, 133);
+    border: dashed 2px rgb(5, 63, 133);
     font-size: 0.8rem;
   }
 }
