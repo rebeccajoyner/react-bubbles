@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap');
+
+
+
+
 
 html,
 body,
@@ -11,7 +17,9 @@ body,
 }
 
 .App {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat Alternates', sans-serif;
+
+  // font-family: "Montserrat", sans-serif;
   text-align: center;
   display: flex;
 
