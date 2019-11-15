@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import axios from "axios";
+
+import { axiosWithAuth } from "../components/utility/axiosWithAuth";
+
+
 
 const initialColor = {
   color: "",
   code: { hex: "" }
+
 };
 
 const ColorList = ({ colors, updateColors }) => {
-  console.log(colors);
+
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+
 
   const editColor = color => {
     setEditing(true);
@@ -18,27 +23,67 @@ const ColorList = ({ colors, updateColors }) => {
 
   const saveEdit = e => {
     e.preventDefault();
+    console.log(colorToEdit);
+
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
+    
+    updateColors(
+      colors.map(color => {
+        if (color.id === colorToEdit.id) {
+          return colorToEdit;
+        } else {
+          return color;
+        }
+      })
+    );
+
+    axiosWithAuth()
+      .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
+      .then(res => {
+        console.log("Edited color on Server", res);
+      })
+      .catch(err => console.log(err.response));
   };
 
   const deleteColor = color => {
     // make a delete request to delete this color
+  
+  updateColors(colors.filter(item => item.id !== color.id));
+  
+  axiosWithAuth()
+  .delete(`http://localhost:5000/api/colors/${color.id}`)
+  .then(res => {
+    console.log("Deleted a color on server", res);
+  })
+  .catch(err => console.log("error in deleting: ", err.response));
+
+  
+
+  axiosWithAuth()
+  .get(`http://localhost:5000/api/colors`)
+  .then(res => {
+    updateColors(res.data);
+  })
+  .catch(err => console.log(err.response));
   };
+
 
   return (
     <div className="colors-wrap">
       <p>colors</p>
       <ul>
         {colors.map(color => (
-          <li key={color.color} onClick={() => editColor(color)}>
+
+////////////////////////////////////
+
+<li key={color.color} onClick={() => editColor(color)}>
+
             <span>
-              <span className="delete" onClick={e => {
-                    e.stopPropagation();
-                    deleteColor(color)
-                  }
-                }>
+
+            <span className="delete" onClick={() => deleteColor(color)}>
+
                   x
               </span>{" "}
               {color.color}
@@ -85,5 +130,6 @@ const ColorList = ({ colors, updateColors }) => {
     </div>
   );
 };
+
 
 export default ColorList;

@@ -50,4 +50,5 @@ const Bubbles = ({ colors }) => {
   );
 };
 
+
 export default Bubbles;
