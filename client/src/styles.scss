@@ -23,6 +23,7 @@ body,
   text-align: center;
   display: flex;
 
+
   svg {
     height: 100%;
   }
@@ -46,6 +47,7 @@ body,
   ul {
     list-style: none;
     text-align: start;
+    
 
     li {
       cursor: pointer;
@@ -64,7 +66,7 @@ body,
 .color-box {
   height: 16px;
   width: 16px;
-  border: 1px lightgray solid;
+  border: solid 1px lightgrey;
   margin-right: 36px;
 }
 
@@ -91,6 +93,8 @@ form {
 
   input {
     width: 100px;
+    border: dotted 2px rgb(5, 63, 133);
+    font-size: 0.8rem;
   }
 }
 
