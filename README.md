@@ -28,10 +28,43 @@ In this project you will create a login page and request a token from the server
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
+
+
+
 - [ ] Explain what a token is used for.
+
+⚛︎ many services require the client to provide proof that it’s authenticated with them;
+⚛︎ the server running these services can issue a JSON Web Token as the authentication token in exchange for correct login credentials.
+
+
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+
+⚛︎ protected routes -- routes that should only render with authentication.
+⚛︎ adding Authorization: <token> header to every request to be allowed access to protected resources that require authentication.
+
+
+
 - [ ] Describe how web servers work.
+
+⚛︎ a phyisical computer device is connected to the internet &  stores the code for different websites to be shared -- this server is “hosting” these websites/apps.
+⚛︎ a program that runs on such a computer which stores the code for a website is also called a 'web server -- with the main purpose being to “serve” web pages it retrieves.
+⚛︎ a URL is a formatted text string referring to the location of a resource on a computer network.
+↳ computers can connect to the internet via the world wide web, locate a specific server computer through a URL and domain name, and retrieve information or resources from that server.
+
+
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+⚛︎ PUT is the “U” in CRUD (it stands for UPDATE);
+⚛︎ PUT method is used to change a resource’s information;
+⚛︎ PUT takes in a body object & identifies data that needs to be updated somewhere.
+
+⚛︎ DELETE HTTP request method is the “D” in CRUD;
+⚛︎ used to delete or destroy data that lives away from a webpage;⚛︎ call .delete means instructing the server to remove some information somewhere.
+
+
+
 
 
 ## Project Set Up
